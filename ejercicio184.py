@@ -7,8 +7,8 @@ math de la biblioteca estándar de Python."""
 
 def factorial(num):
     factorial = 1
-    for x in range(1, num):
-        factorial*= num
+    for x in range(1, num+1):
+        factorial *= x
     return factorial
 condicion = True
 
