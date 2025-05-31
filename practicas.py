@@ -15,12 +15,6 @@ Ejercicios Intermedios (Herencia y Encapsulamiento):
 
 
 
-5 - Clase Vehiculo y Coche:
-
-Crea una clase Vehiculo con atributos como marca, modelo y año.
-Implementa un método mostrar_detalles() que imprima estos atributos.
-Crea una subclase Coche que herede de Vehiculo y agregue un atributo numero_puertas.
-Sobrescribe o extiende el método mostrar_detalles() en Coche para incluir el número de puertas.
 
 
 Ejercicios Avanzados (Polimorfismo, Composición, Clases Abstractas):
