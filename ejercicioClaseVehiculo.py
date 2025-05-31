@@ -22,19 +22,16 @@ Año de fabricación: {self._anio}''')
 
 class Auto(Vehiculo):
     def __init__(self, marca, modelo, anio, puertas):
-        super()
-        self._marca = marca
-        self._modelo = modelo
-        self._anio = anio
+        super().__init__(marca, modelo, anio)
         self._cant_puertas = puertas
 
     def mostrar_detalles(self):
-        super()
-        print(f'Número de puertas: {self._cant_puertas}')
+        super().mostrar_detalles()
+        print(f'Número de puertas: {self._cant_puertas}\n')
 
 
 # main
 auto1 = Auto('Ford', 'Fiesta', 2010, 4)
-auto2 = Auto('WolksVagen', 'Gol', 2006, 2)
+auto2 = Auto('VolksWagen', 'Gol', 2006, 2)
 auto1.mostrar_detalles()
-auto2.mostrar_detalles() #Arreglar la herencia y sobreescritura de metodos en esta clase
+auto2.mostrar_detalles()

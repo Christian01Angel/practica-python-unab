@@ -19,13 +19,6 @@ Ejercicios Intermedios (Herencia y Encapsulamiento):
 
 Ejercicios Avanzados (Polimorfismo, Composición, Clases Abstractas):
 
-6 - Clase FormaGeometrica y Polimorfismo:
-
-Define una clase base FormaGeometrica con un método calcular_area() que lance una excepción NotImplementedError.
-Crea subclases como Circulo y Cuadrado que hereden de FormaGeometrica.
-Implementa el método calcular_area() de forma específica para cada subclase.
-Crea una lista de objetos de diferentes formas geométricas y recorre la lista llamando a calcular_area() para demostrar el polimorfismo.
-
 7 - Sistema de Gestión de Empleados (Herencia y Composición):
 
 Crea una clase Persona con atributos nombre y edad.
