@@ -19,12 +19,6 @@ Ejercicios Intermedios (Herencia y Encapsulamiento):
 
 Ejercicios Avanzados (Polimorfismo, Composición, Clases Abstractas):
 
-7 - Sistema de Gestión de Empleados (Herencia y Composición):
-
-Crea una clase Persona con atributos nombre y edad.
-Crea una clase Empleado que herede de Persona y agregue atributos como id_empleado y salario.
-Crea una clase Departamento que tenga una lista de objetos Empleado (composición).
-Implementa métodos en Departamento para agregar empleados, listar empleados y calcular el salario total del departamento.
 
 8 - Clase ReproductorMusical (Composición):
 
