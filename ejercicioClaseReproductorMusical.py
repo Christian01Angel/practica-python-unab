@@ -26,31 +26,51 @@ class ReproductorMusical(Cancion):
 
     def play(self):
         if ReproductorMusical.reproductor:
-            print(f'Arrancando reproducción. Estas escuchando {self._cancionActual._titulo} del artista {self._cancionActual._artista}')
+            print(f'Arrancando reproducción. Estas escuchando {self._cancionActual._titulo} del artista {self._cancionActual._artista} \n')
         else:
-            print('El reproductor se encuentra vacío. Por favor seleccioná una canción')
+            print('El reproductor se encuentra vacío. Por favor seleccioná una canción\n')
 
     def siguiente(self):
         indice = ReproductorMusical.reproductor.index(self._cancionActual)
-        print(indice)
-        self._cancionActual = ReproductorMusical.reproductor[indice+1]
-        print(f'Estas escuchando {self._cancionActual._titulo} del artista {self._cancionActual._artista}')
+        if indice < len(ReproductorMusical.reproductor)-1:
+            self._cancionActual = ReproductorMusical.reproductor[indice+1]
+            print(f'Estas escuchando {self._cancionActual._titulo} del artista {self._cancionActual._artista}\n')
+        else:
+            print('Esta es la última canción\n')
+
+    def anterior(self):
+        indice = ReproductorMusical.reproductor.index(self._cancionActual)
+        if indice > 0:
+            self._cancionActual = ReproductorMusical.reproductor[indice - 1]
+            print(f'Estas escuchando {self._cancionActual._titulo} del artista {self._cancionActual._artista}\n')
+        else:
+            print(f'Estas escuchando {self._cancionActual._titulo} del artista {self._cancionActual._artista}\n')
+
 
     def agregar_cancion(self, cancion):
         ReproductorMusical.reproductor.append(cancion)
         self._cancionActual = ReproductorMusical.reproductor[0]
 
-    def eliminar_cancion(self, cancion):
-        ReproductorMusical.reproductor.pop(cancion)
+    def eliminar_cancion(self, tituloCancion):
+        for cancion in ReproductorMusical.reproductor:
+            if tituloCancion == cancion._titulo:
+                ReproductorMusical.reproductor.remove(cancion)
 
     def pausar(self):
-        print('Has pausado el reproductor')
+        print('Has pausado el reproductor\n')
 
     def ver_reproductor(self):
-        print('Playlist: {')
-        for i in ReproductorMusical.reproductor:
-            print(f'{i._titulo} -- {i._artista}')
-        print('}')
+        if self._cancionActual is not None:
+            print('Playlist: {')
+            for i in ReproductorMusical.reproductor:
+                print(f'{i._titulo} -- {i._artista}')
+            print('}\n')
+        else:
+            print('La playlist esta vacía.\n')
+
+    def limpiar_playlist(self):
+        ReproductorMusical.reproductor = []
+        self._cancionActual = None
 
     def stop(self):
         return False
@@ -69,19 +89,26 @@ viejo_karma = Cancion('Viejo Karma!', 'Las Pastillas del Abuelo')
 bohemian_rapsody = Cancion('Bohemian Rapsody', 'Queen')
 
 reproductor = ReproductorMusical()
+reproductor.agregar_cancion(amor_amarillo)
+reproductor.agregar_cancion(cancion_animal)
+reproductor.agregar_cancion(soy)
+reproductor.agregar_cancion(viejo_karma)
+reproductor.agregar_cancion(bohemian_rapsody)
 condicion = True
 
 while condicion:
     print(f'''Seleccione una opción:
 1- Reproducción (Play)
-2- Siguiente canción
-3- Agregar Canción a la playlist
-4- Eliminar canción de la playlist
-5- Mostrar la playlist completa
-6- Detener el reproductor (Stop)
+2- Canción siguiente
+3- Canción anterior
+4- Agregar Canción a la playlist
+5- Eliminar canción de la playlist
+6- Mostrar la playlist completa
+7- Vaciar la playlist
+8- Detener el reproductor (Stop)
 ''')
     try:
-        eleccion = int(input(f'Que desea hacer?: '))
+        eleccion = int(input(f'Que desea hacer?: \n'))
 
         match eleccion:
             case 1:
@@ -90,22 +117,24 @@ while condicion:
             case 2:
                 reproductor.siguiente()
             case 3:
-                titulo = input('Escribe el titulo de la canción: ')
-                autor = input('Indica el autor de la canción: ')
+                reproductor.anterior()
+            case 4:
+                titulo = input('Escribe el titulo de la canción: \n')
+                autor = input('Indica el autor de la canción: \n')
                 cancion = Cancion(titulo, autor)
                 reproductor.agregar_cancion(cancion)
-            case 4:
-                titulo = input('Escribe el titulo de la canción: ')
-                autor = input('Indica el autor de la canción: ')
-                cancion = Cancion(titulo, autor)
-                reproductor.eliminar_cancion(cancion)
             case 5:
-                reproductor.ver_reproductor()
+                titulo = input('Escribe el titulo de la canción: \n')
+                reproductor.eliminar_cancion(titulo)
             case 6:
+                reproductor.ver_reproductor()
+            case 7:
+                reproductor.limpiar_playlist()
+            case 8:
                 condicion = reproductor.stop()
-                print('Gracias por compartir tu hermosa musica. Hasta la próxima.')
+                print('Gracias por compartir tu hermosa musica. Hasta la próxima.\n')
             case _:
-                print('Opción ingresada invalida. Por favor intenta nuevamente')
+                print('Opción ingresada invalida. Por favor intenta nuevamente\n')
 
     except ValueError:
-        print('Valor ingresado invalido. Por favor intenta nuevamente')
+        print('Valor ingresado invalido. Por favor intenta nuevamente\n')
