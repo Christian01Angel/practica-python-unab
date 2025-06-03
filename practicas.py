@@ -12,13 +12,6 @@ Crea algunos objetos Rectangulo y prueba sus métodos
 
 Ejercicios Avanzados (Polimorfismo, Composición, Clases Abstractas):
 
-
-9 - Clase Abstracta DispositivoElectronico:
-
-Utiliza el módulo abc para crear una clase base abstracta DispositivoElectronico con un método abstracto encender() y apagar().
-Crea subclases como Telefono y Computadora que hereden de DispositivoElectronico y implementen los métodos abstractos de forma específica.
-Intenta instanciar DispositivoElectronico directamente para ver el error que genera.
-
 10 - Simulación de Tienda Online (Múltiples clases y relaciones):
 
 Crea clases para representar:
