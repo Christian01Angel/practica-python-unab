@@ -7,25 +7,11 @@ Ejercicios Básicos (Clases y Objetos simples):
 Crea una clase Rectangulo que tenga dos atributos: ancho y alto.
 Implementa un método calcular_area() que devuelva el área del rectángulo.
 Implementa un método calcular_perimetro() que devuelva el perímetro del rectángulo.
-Crea algunos objetos Rectangulo y prueba sus métodos.
-
-
-
-Ejercicios Intermedios (Herencia y Encapsulamiento):
-
-
-
+Crea algunos objetos Rectangulo y prueba sus métodos
 
 
 Ejercicios Avanzados (Polimorfismo, Composición, Clases Abstractas):
 
-
-8 - Clase ReproductorMusical (Composición):
-
-Crea una clase Cancion con atributos titulo y artista.
-Crea una clase ReproductorMusical que tenga una lista de objetos Cancion.
-Implementa métodos como agregar_cancion(), reproducir_siguiente(), pausar() y mostrar_playlist().
-Demuestra cómo el ReproductorMusical "tiene" varias Canciones.
 
 9 - Clase Abstracta DispositivoElectronico:
 
